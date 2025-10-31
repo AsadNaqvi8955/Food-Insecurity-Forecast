@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Food Insecurity Forecast</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h2 class="mb-4 text-center">Upload Data to Predict Food Insecurity</h2>
+  <form action="/predict" method="post" enctype="multipart/form-data">
+    <input type="file" name="datafile" accept=".csv" required>
+    <button type="submit">Predict</button>
+  </form>
+  <form method="POST" action="/predict_scenario">
+    <label for="year">Select Future Year:</label>
+    <input type="number" name="year" value="2026" min="2024" max="2035"><br><br>
+
+    <label>Change in Rent (%):</label>
+    <input type="number" name="rent_change" value="5" step="0.1"><br><br>
+
+    <label>Change in Unemployment Rate (%):</label>
+    <input type="number" name="unemployment_change" value="2" step="0.1"><br><br>
+
+    <label>Change in Cost Per Meal (%):</label>
+    <input type="number" name="cost_change" value="3" step="0.1"><br><br>
+
+    <input type="submit" value="Predict Future Scenario">
+  </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Insecurity Forecast</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8fafc;
+      font-family: 'Inter', sans-serif;
+    }
+    .container {
+      max-width: 700px;
+      margin-top: 60px;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2> Food Insecurity Forecast</h2>
+
+    <div class="card p-4">
+      <h5 class="mb-3 text-success">Scenario-Based Forecast</h5>
+      <form method="POST" action="/predict_scenario">
+        <div class="mb-3">
+          <label for="year" class="form-label">Select Future Year:</label>
+          <input type="number" class="form-control" name="year" value="2026" min="2024" max="2035">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Change in Unemployment Rate (%):</label>
+          <input type="number" class="form-control" name="unemployment_change" value="2" step="0.1">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Change in Cost Per Meal (%):</label>
+          <input type="number" class="form-control" name="cost_change" value="3" step="0.1">
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Predict Future Scenario</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>Developed using Flask & Bootstrap 5</p>
+    </footer>
+  </div>
+</body>
+</html>
